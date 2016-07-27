@@ -1,5 +1,13 @@
 <h1>Add a new concert</h1>
 
+<% if @my_concert.errors.any? %>
+	<ul>
+		<% @my_concert.errors.full_messages.each do |error_msg| %>
+			<li><%= error_msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
 <%= form_for(@my_concert) do |f| %>
 	<%= f.label :artist %>
 	<%= f.text_field :artist %>
@@ -21,5 +29,3 @@
 	<br><br>
 	<%= f.button %>
 <% end %>
-  
-	
