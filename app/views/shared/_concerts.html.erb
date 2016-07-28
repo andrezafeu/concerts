@@ -1,0 +1,14 @@
+<ul>
+	<% @concerts.each do |concert| %>
+		<% if concert.date.future? %>
+			<li>
+				<%= link_to concert.artist, "/concerts/#{concert.id}" %>
+				<% if concert.description %>
+					- 
+				<% end %>
+				<%= concert.description %>
+				<%= concert.date %>
+			</li>
+		<% end %>
+	<% end %>
+</ul>

@@ -1,5 +1,14 @@
 <h1>Home</h1>
 
+<h4>Filter by price</h4>
+
+<%= form_tag('/search') do %>
+	<%= label_tag 'Cost' %>
+	<%= number_field_tag 'cost' %>
+	<%= submit_tag 'Search' %>
+<% end %>
+
+
 <h2>Happening Today:</h2>
 
 <% count = 0 %>
@@ -25,19 +34,6 @@
 
 <h2>Happening Soon:</h2>
 
-<ul>
-	<% @concerts.each do |concert| %>
-		<% if concert.date.future? %>
-			<li>
-				<%= link_to concert.artist, "/concerts/#{concert.id}" %>
-				<% if concert.description %>
-					- 
-				<% end %>
-				<%= concert.description %>
-				<%= concert.date %>
-			</li>
-		<% end %>
-	<% end %>
-</ul>
+<%= render "shared/concerts" %>
 
 <%= link_to "Create a new concert", new_concert_path %>

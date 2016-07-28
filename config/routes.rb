@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   resources :concerts, only: [:show, :new, :create] do
   	resources :comments, except: [:show]
   end
+
+  post '/search', to: 'site#search'
+
 end
