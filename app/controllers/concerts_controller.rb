@@ -19,6 +19,8 @@ class ConcertsController < ApplicationController
 	end
 	def show
 		@my_concert = Concert.find_by(id:params[:id])
+		@comments = @my_concert.comments.order(created_at: :desc)
+		@my_comment = @my_concert.comments.new
 		unless @my_concert
 			render "no_concerts_found"
 		end

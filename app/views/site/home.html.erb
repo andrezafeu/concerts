@@ -6,7 +6,7 @@
 
 <ul>
 	<% @concerts.each do |concert| %>
-		<% if concert.date.today? %>
+		<% if concert.date.to_date == Date.today %>
 			<li>
 				<%= link_to concert.artist, "/concerts/#{concert.id}" %>
 				<% if concert.description %>

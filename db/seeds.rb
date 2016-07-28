@@ -1,7 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+concert1 = Concert.create(artist: "Galantis", venue: "Story", city: "Miami", date: "2016/7/29 23:00", price: "25")
+concert2 = Concert.create(artist: "Aurelio", venue: "Venue", city: "Miami", date: "2016/7/27 22:30", price: "45", description: "Afro Roots Festival 2016")
+concert3 = Concert.create(artist: "Marc Anthony", venue: "American Airlines Arena", city: "Miami", date: "2016/11/18 20:00", price: "61")
+concert4 = Concert.create(artist: "Maná", venue: "American Airlines Arena", city: "Miami", date: "2016/10/29 20:30", price: "40")
+concert5 = Concert.create(artist: "Sia", venue: "BB&T", city: "Sunrise", date: "2016/10/29 19:00", price: "30", description: "Sia, Miguel, Alunageorge")
+concert6 = Concert.create(artist: "Pitbull", venue: "BB&T", city: "Sunrise", date: "2016/7/31 19:00", price: "30", description: "Pitbull, Prince Royce, Farruko")
+concert6 = Concert.create(artist: "Pitbull", venue: "Hard Rock Live", city: "Hollywood", date: "2016/8/1 20:00", price: "35", description: "Pitbull, Prince Royce, Farruko")
+concert6 = Concert.create(artist: "Pitbull", venue: "American Airlines Arena", city: "Miami", date: "2016/11/5 20:00", price: "45", description: "Pitbull, Prince Royce, Farruko")

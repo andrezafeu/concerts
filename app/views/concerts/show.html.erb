@@ -4,6 +4,37 @@
 <p><%= @my_concert.venue %></p>
 <p><%= @my_concert.city %></p>
 <p><%= @my_concert.date %></p>
-<p><%= @my_concert.price %></p>
+<p>$ <%= @my_concert.price %></p>
 
+<h3>Comments</h3>
+
+<% count = 0 %>
+
+<ul>
+	<% @comments.each do |comment| %>
+		<li>
+			<b><%= comment.name %></b><br>
+			<%= comment.comment %>
+		</li>
+		<% count = count + 1 %>
+	<% end %>
+</ul>
+
+<% if count == 0 %>
+	No comment yet. 
+<% end %>
+
+<h4>Leave your comment!</h4>
+
+<%= form_for [@my_concert, @my_comment] do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :comment %>
+	<%= f.text_area :comment %>
+	<br>
+	<%= f.submit "Save" %>
+<% end %>
+  
+<br>
 <%= link_to 'Return to Home', home_path %>
