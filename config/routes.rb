@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   end
 
   post '/search', to: 'site#search'
+  post 'concerts/popular', to: 'concerts#popular'
 
 end

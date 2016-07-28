@@ -7,7 +7,12 @@
 	<%= number_field_tag 'cost' %>
 	<%= submit_tag 'Search' %>
 <% end %>
+<br>
 
+<%= form_tag('concerts/popular') do %>
+ 	<b><%=label_tag 'Popular'%></b><br>
+ 	<%= submit_tag 'See Popular Concerts!' %>
+<% end -%>
 
 <h2>Happening Today:</h2>
 

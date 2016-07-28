@@ -25,4 +25,11 @@ class ConcertsController < ApplicationController
 			render "no_concerts_found"
 		end
 	end
+	def popular
+		@concerts = Concert.all
+ 		@concerts = @concerts.sort_by do |concert|
+ 			concert.comments.count
+ 		end
+ 		@concerts = @concerts.last(10).reverse
+	end
 end
