@@ -1,1 +1,43 @@
 <h1>Home</h1>
+
+<h2>Happening Today:</h2>
+
+<% count = 0 %>
+
+<ul>
+	<% @concerts.each do |concert| %>
+		<% if concert.date.today? %>
+			<li>
+				<%= link_to concert.artist, "/concerts/#{concert.id}" %>
+				<% if concert.description %>
+					- 
+				<% end %>
+				<%= concert.description %>
+				<%= concert.date %>
+			</li>
+			<% count = count + 1 %>
+		<% end %>
+	<% end %>
+</ul>
+<% if count == 0 %>
+	No concerts registered for today :(
+<% end %>
+
+<h2>Happening Soon:</h2>
+
+<ul>
+	<% @concerts.each do |concert| %>
+		<% if concert.date.future? %>
+			<li>
+				<%= link_to concert.artist, "/concerts/#{concert.id}" %>
+				<% if concert.description %>
+					- 
+				<% end %>
+				<%= concert.description %>
+				<%= concert.date %>
+			</li>
+		<% end %>
+	<% end %>
+</ul>
+
+<%= link_to "Create a new concert", new_concert_path %>
