@@ -22,7 +22,7 @@
 	<% @concerts.each do |concert| %>
 		<% if concert.date.to_date == Date.today %>
 			<li>
-				<%= link_to concert.artist, "/concerts/#{concert.id}" %>
+				<%= link_to concert.artist, concert_path(concert) %>
 				<% if concert.description %>
 					- 
 				<% end %>
