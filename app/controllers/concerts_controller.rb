@@ -3,16 +3,9 @@ class ConcertsController < ApplicationController
 		@my_concert = Concert.new
 	end
 	def create
-		@my_concert = Concert.new(
-			:artist => params[:concert][:artist],
-			:venue => params[:concert][:venue],
-			:city => params[:concert][:city],
-			:date => params[:concert][:date],
-			:price => params[:concert][:price],
-			:description => params[:concert][:description]
-			)
+		@my_concert = Concert.new(concert_params)
 		if @my_concert.save
-			redirect_to "/concerts/#{@my_concert.id}"
+			redirect_to concert_path(@my_concert)
 		else
 			render "new"
 		end
@@ -31,5 +24,10 @@ class ConcertsController < ApplicationController
  			concert.comments.count
  		end
  		@concerts = @concerts.last(10).reverse
+	end
+
+	private
+	def concert_params
+		params.require(:concert).permit(:artist, :venue, :city, :date, :price, :description)
 	end
 end
